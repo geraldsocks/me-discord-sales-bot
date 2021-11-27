@@ -5,6 +5,10 @@
   "author": "GeraldSock",
   "description": "Twitter bot tweeting Sol NFT sales for a given collection - forked from repo by Androz2091 <androz2091@gmail.com>",
   "license": "MIT",
+  "engines": {
+      "node": "16.6.0",
+      "npm": "7.19.1"
+  },
   "dependencies": {
     "axios": "^0.21.1",
     "discord.js": "^13.3.1",
