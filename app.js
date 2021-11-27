@@ -12,11 +12,11 @@ dotenv.config()
 const collectionName = process.env.COLLECTION_NAME
 
 // Format tweet text
-function formatAndSendTweet(tweetText,imageUrl) {
-    //console.log(tweetText);
-    return tweet.tweetWithImage(tweetText, imageUrl);
-    //return tweet.tweet(tweetText);
-}
+// function formatAndSendTweet(tweetText,imageUrl) {
+//     //console.log(tweetText);
+//     return tweet.tweetWithImage(tweetText, imageUrl);
+//     //return tweet.tweet(tweetText);
+// }
 
 const fetchMagicEdenNFT = (mint) => {
     return new Promise((resolve) => {
@@ -251,3 +251,5 @@ client.on('ready', () => {
 
 
 client.login(process.env.DISCORD_BOT_TOKEN);
+
+
