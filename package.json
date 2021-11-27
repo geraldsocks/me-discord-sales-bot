@@ -1,0 +1,15 @@
+{
+  "name": "solnft-twitter-bot",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "GeraldSock",
+  "description": "Twitter bot tweeting Sol NFT sales for a given collection - forked from repo by Androz2091 <androz2091@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "dotenv": "^10.0.0",
+    "easy-json-database": "^1.5.0",
+    "node-fetch": "2",
+    "twit": "^2.2.11"
+  }
+}
