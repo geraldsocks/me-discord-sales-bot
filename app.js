@@ -1,5 +1,5 @@
 const fetch = require('node-fetch');
-const tweet = require('./tweet');
+//const tweet = require('./tweet');
 const dotenv = require("dotenv")
 const Discord = require('discord.js');
 
