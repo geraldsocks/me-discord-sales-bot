@@ -268,6 +268,8 @@ const synchronizeMagicEden = () => {
 
                 const nft = await fetchMagicEdenNFT(event.parsedTransaction.mint);
                 
+                const attributes = nft.attributes;
+                
                 attributes.forEach(attribute => {
                     switch (attribute.trait_type) {
                         case `Skin`:
