@@ -95,71 +95,71 @@ const synchronizeMagicEden = () => {
     collectionName
     ].forEach((collection) => {
 
-        // getListingMagicEden(collection).then((listings) => {
+        getListingMagicEden(collection).then((listings) => {
 
-        //     console.log(`${new Date().toJSON()} Checking ${collectionName} Listings`)
+            console.log(`${new Date().toJSON()} Checking ${collectionName} Listings`)
 
-        //     const sortedListings = listings
-        //         .sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime())
+            const sortedListings = listings
+                .sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime())
 
-        //     if (!listings.length) return;
+            if (!listings.length) return;
             
-        //     const newListings = sortedListings
-        //         .filter((e) => new Date(e.createdAt).getTime() > new Date(Date.now()).getTime() - process.env.INTERVAL_MILLISECONDS);
+            const newListings = sortedListings
+                .filter((e) => new Date(e.createdAt).getTime() > new Date(Date.now()).getTime() - process.env.INTERVAL_MILLISECONDS);
 
-        //     if (!newListings.length) return;
+            if (!newListings.length) return;
 
-        //     newListings.reverse().forEach(async (event) => {
+            newListings.reverse().forEach(async (event) => {
 
-        //         //console.log(event)
+                //console.log(event)
 
-        //         if (!event.id) return;
+                if (!event.id) return;
 
-        //         const nft = await fetchMagicEdenNFT(event.mintAddress);
+                const nft = await fetchMagicEdenNFT(event.mintAddress);
                 
-        //         const attributes = nft.attributes;
+                const attributes = nft.attributes;
 
-        //         attributes.forEach(attribute => {
-        //             switch (attribute.trait_type) {
-        //                 case `Skin`:
-        //                     attrSkin = attribute.value;
-        //                 case `Shirt`:
-        //                     attrShirt = attribute.value;
-        //                 case `Hat`:
-        //                     attrHat = attribute.value;
-        //             }
-        //         })
+                attributes.forEach(attribute => {
+                    switch (attribute.trait_type) {
+                        case `Skin`:
+                            attrSkin = attribute.value;
+                        case `Shirt`:
+                            attrShirt = attribute.value;
+                        case `Hat`:
+                            attrHat = attribute.value;
+                    }
+                })
 
-        //         const tweetImg = `${nft.img}`;
+                const tweetImg = `${nft.img}`;
 
-        //         sourceName = `on Magic Eden`;
-        //         sourceURL = `https://magiceden.io/item-details/${event.mintAddress}`
-        //         tweetText = `${nft.title} listed for ${(event.price).toFixed(2)} SOL ${sourceName} ${sourceURL}`;
-        //         console.log(`${tweetText} ${tweetImg}`);
+                sourceName = `on Magic Eden`;
+                sourceURL = `https://magiceden.io/item-details/${event.mintAddress}`
+                tweetText = `${nft.title} just listed for ${(event.price).toFixed(2)} SOL ${sourceName} ${sourceURL}`;
+                console.log(`${tweetText} ${tweetImg}`);
 
-        //         const embed = new Discord.MessageEmbed()
-        //             .setTitle(`${nft.title} was Listed`)
-        //             .setURL(`https://magiceden.io/item-details/${event.mintAddress}`)
-        //             .addField('Price', `${(event.price).toFixed(2)} SOL`)
-        //             //.addField('Buyer', event.parsedTransaction.buyer_address)
-        //             //.addField('Seller', event.seller_address)
-        //             .setThumbnail(nft.img)
-        //             .setTimestamp(new Date(event.createdAt))
-        //             .setColor('DARK_AQUA')
-        //             .setFooter('Magic Eden')
-        //             .addField('Skin', attrSkin, true)
-        //             .addField('Shirt', attrShirt, true)
-        //             .addField('Hat', attrHat, true);
-        //             //.setThumbnail('');
+                const embed = new Discord.MessageEmbed()
+                    .setTitle(`${nft.title} just Listed`)
+                    .setURL(`https://magiceden.io/item-details/${event.mintAddress}`)
+                    .addField('Price', `${(event.price).toFixed(2)} SOL`)
+                    //.addField('Buyer', event.parsedTransaction.buyer_address)
+                    //.addField('Seller', event.seller_address)
+                    .setThumbnail(nft.img)
+                    .setTimestamp(new Date(event.createdAt))
+                    .setColor('DARK_AQUA')
+                    .setFooter('Magic Eden')
+                    .addField('Skin', attrSkin, true)
+                    .addField('Shirt', attrShirt, true)
+                    .addField('Hat', attrHat, true);
+                    //.setThumbnail('');
 
 
-        //         client.channels.cache.get(process.env.MAGICEDEN_LISTINGS_CHANNEL_ID).send({
-        //             embeds: [embed]
-        //         }).catch(() => {});
+                client.channels.cache.get(process.env.MAGICEDEN_LISTINGS_CHANNEL_ID).send({
+                    embeds: [embed]
+                }).catch(() => {});
                 
-        //         });
+                });
 
-        //     });
+            });
 
         getHistoryMagicEdenSales(collection).then((events) => {
 
