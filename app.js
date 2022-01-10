@@ -241,7 +241,7 @@ const synchronizeMagicEden = () => {
                             .addField('Hat', attrHat, true);
                             //.setThumbnail('');
                             
-                        client.channels.cache.get(process.env.MAGICEDEN_LISTINGS_CHANNEL_ID).send({
+                        client.channels.cache.get(process.env.MAGICEDEN_DELISTINGS_CHANNEL_ID).send({
                             embeds: [embed]
                         }).catch(() => {});
                         //return formatAndSendTweet(tweetText,tweetImg);
